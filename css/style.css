@@ -1,0 +1,155 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap);
+
+body {
+    color: #000;  
+    font-family: Roboto, sans-serif;
+    background-image: url(../img/bg2.jpg);
+    background-size:140%;
+    background-position: center;
+    background-repeat: no-repeat;   
+}
+html{
+    padding: 0;
+    margin: 0;
+}
+
+
+.card {
+    border-radius: 7px;
+    background-color: #ecf0f3;
+    color: #f9f9f9;
+
+}
+h4{
+    font-size: 40px;
+    font-weight: 600;
+}
+.card .card--heading {
+    color: #ffeb3b
+}
+
+.bg-card {
+    background-image: url(../img/bg1.png);
+    background-size: cover;
+    background-position: center;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px
+    
+}
+
+.bg-holder {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    background-repeat: no-repeat
+}
+
+.btn-primary {
+    border-radius: 25px;
+    letter-spacing: 1px;
+    background-color: #ffeb3b;
+    color: #f44336;
+    border: none;
+    outline: 0;
+    padding: 10px 40px;
+    transform: scale(1)
+}
+
+.btn-primary:focus,
+.btn-primary:hover {
+    transform: scale(1.05);
+    transition: .25s
+}
+
+.btn-tabs {
+    background: #ecf0f3;
+    box-shadow: -3px -3px 7px #fff, 3px 3px 5px #ceced1;
+    color: #31344b
+}
+.btn-tabshome{
+    background:  #ffeb3b!important;
+    box-shadow: -3px -3px 7px #fff, 3px 3px 5px #ceced1;
+    color: #31344b
+}
+.nav-tabs {
+    background-color: #ecf0f3;
+    box-shadow: 4px 4px 10px #d1d9e6, -4px -4px 10px #f9f9f9;
+    padding: 20px
+}
+
+.btn-tabs::before {
+    content: "📗"
+}
+.btn-tabs.active::before {
+    content: "📖"
+}
+
+#v-pills-tabContent .tab-pane {
+    padding: 20px
+}
+
+.form__input {
+    letter-spacing: .15px;
+    border: none;
+    outline: 0;
+    padding: .5rem 1rem;
+    background-color: #ecf0f3;
+    transition: .25s ease;
+    border-radius: 8px;
+    box-shadow: inset 2px 2px 4px #d1d9e6, inset -2px -2px 4px #f9f9f9
+}
+
+.form__input:focus {
+    box-shadow: inset 4px 4px 4px #d1d9e6, inset -4px -4px 4px #f9f9f9
+}
+
+.nav-link{
+    margin-right: 29px;
+    padding: 0.5rem 2rem;
+}
+li{
+    font-size: 30px;
+    color: #cddc39;
+}
+
+.tab-pane i{
+    margin-right: 10px;
+} 
+.nav-link i{
+    font-size: 20px;
+    color: #86d72f;
+}
+.callout li{
+    font-size: 17px;
+    color: #000;
+}
+.callout i{
+    color: #ffc107;
+    font-size: 20px;
+}
+.callout {
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(255,255,255,0.5);
+    border-left-width: 5px;
+    border-radius:  5px;
+    background-color: rgb(255,255,255,0.5);
+    color: #31344b;
+    box-shadow: -3px -3px 7px #fff, 3px 3px 5px #ceced1
+}
+
+.callout-info {
+    border-left-color: #ffeb3b;
+}
+.alert-warning{
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #000;
+}
+
+.knstyle{
+    display:none;
+}
