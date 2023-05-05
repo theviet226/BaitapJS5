@@ -37,7 +37,7 @@ function ManageAdmissions() {
             break;
         default:
             alert("Bạn chưa chọn khu vực")
-            return"";
+            return "";
     }
 
     var diemUuTienDT = "";
@@ -56,20 +56,19 @@ function ManageAdmissions() {
             break;
         default:
             alert("Bạn chưa chọn đối tượng")
-            return"";
-            
+            return "";
+
     }
 
     var tongDiem = 0;
-    tongDiem = diemMon1 + diemMon2 + diemMon3 + diemUuTienKV + diemUuTienDT;
+    tongDiem = diemMon1 + diemMon2 + diemMon3 + (diemUuTienKV + diemUuTienDT);
 
     if (diemMon1 == 0 || diemMon2 == 0 || diemMon3 == 0) {
-        document.getElementById("txtKetQua").innerHTML = "Tổng điểm đạt được: " + tongDiem + ";"+ "  Bạn đã rớt vì có một môn điểm 0.";
-        console.log("Thí sinh thi rớt.");
+        document.getElementById("txtKetQua").innerHTML = "Tổng điểm đạt được: " + tongDiem + ";" + "  Thí sinh đã rớt vì có một môn điểm 0.";
     } else if (tongDiem >= diemChuan) {
-        document.getElementById("txtKetQua").innerHTML = "Tổng điểm đạt được: " + tongDiem + ";"+"  Bạn đã đậu";
+        document.getElementById("txtKetQua").innerHTML = "Tổng điểm đạt được: " + tongDiem + ";" + "  Thí sinh đã đậu.";
     } else {
-        document.getElementById("txtKetQua").innerHTML = "Tổng điểm đạt được  " + tongDiem +";"+ "  Bạn đã rớt.";
+        document.getElementById("txtKetQua").innerHTML = "Tổng điểm đạt được:  " + tongDiem + ";" + "  Thí sinh đã rớt.";
     }
 
 }
@@ -86,13 +85,14 @@ function ManageAdmissions() {
  * Khối 3 : Output
  * Tính thành tiền
  */
-function calcElec() {
+const KW_DAU = 500;
+const KW_50_100 = 650;
+const KW_100_200 = 850;
+const KW_200_350 = 1100;
+const KW_TREN350 = 1300;
 
-    const KW_DAU = 500;
-    const KW_50_100 = 650;
-    const KW_100_200 = 850;
-    const KW_200_350 = 1100;
-    const KW_TREN350 = 1300;
+
+function calcElec() {
 
     var name = document.getElementById("inputName").value;
     var soKW = document.getElementById("inputKW").value;
@@ -110,7 +110,7 @@ function calcElec() {
         total = 50 * KW_DAU + 50 * KW_50_100 + 100 * KW_100_200 + 150 * KW_200_350 + (soKW - 350) * KW_TREN350
     } else {
         alert("Bạn nhập sai số kw không hợp lệ!")
-        return"";
+        return "";
     }
     total = new Intl.NumberFormat("vn-VN").format(total)
 
@@ -129,15 +129,17 @@ function calcElec() {
  * Khối 3 : Output
  * Tính thành tiền
  */
+const TAX0_60 = 0.05;
+const TAX60_120 = 0.1;
+const TAX120_210 = 0.15;
+const TAX210_384 = 0.2;
+const TAX384_624 = 0.25;
+const TAX624_960 = 0.3;
+const TAX_TREN960 = 0.35;
+
 
 function calcTax() {
-    const TAX0_60 = 0.05;
-    const TAX60_120 = 0.1;
-    const TAX120_210 = 0.15;
-    const TAX210_384 = 0.2;
-    const TAX384_624 = 0.25;
-    const TAX624_960 = 0.3;
-    const TAX_TREN960 = 0.35;
+
 
     var name = document.getElementById("inputHT").value;
     var thuNhap = document.getElementById("inputTN").value;
@@ -159,9 +161,9 @@ function calcTax() {
         total = 60e+6 * TAX0_60 + 60e6 * TAX60_120 + 90e6 * TAX120_210 + 174e6 * TAX210_384 + 240e6 * TAX384_624 + (thuNhap - 624e+6) * TAX624_960;
     } if (thuNhap > 960e+6) {
         total = 60e+6 * TAX0_60 + 60e6 * TAX60_120 + 90e6 * TAX120_210 + 174e6 * TAX210_384 + 240e6 * TAX384_624 + 336e6 * TAX624_960 + (thuNhap - 960e+6) * TAX_TREN960;
-    }else{
+    } else {
         alert("Bạn nhập số thu nhập không hợp lệ!")
-        return"";
+        return "";
     }
 
     total = new Intl.NumberFormat("vn-VN").format(total)
@@ -186,14 +188,17 @@ function calcTax() {
  * Khối 3 : Output
  * Tính thành tiền
  */
-function clalcCap() {
-    const PHI_HD_ND = 4.5;
-    const PHI_DV_ND = 20.5;
-    const PHI_THUE_KENH_ND = 7.5;
+const PHI_HD_ND = 4.5;
+const PHI_DV_ND = 20.5;
+const PHI_THUE_KENH_ND = 7.5;
 
-    const PHI_HD_DN = 15;
-    const PHI_DV_DN = 75
-    const PHI_THUE_KENH_DN = 50
+const PHI_HD_DN = 15;
+const PHI_DV_DN = 75
+const PHI_THUE_KENH_DN = 50
+
+
+function clalcCap() {
+
 
     var loaiKH = document.getElementById("selCustomer").value;
     var maKH = document.getElementById("inputID").value;
@@ -214,7 +219,7 @@ function clalcCap() {
             break
         default:
             alert("Vui lòng chọn loại khách hàng!")
-            return"";
+            return "";
     }
     total = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(total);
 
@@ -225,19 +230,19 @@ function clalcCap() {
 
 
 
-function reset(){
+function reset() {
     document.getElementById("txtKetQua").innerHTML = "";
 }
 
-function reset2(){
+function reset2() {
     document.getElementById("txtElc").innerHTML = "";
 }
 
-function reset3(){
+function reset3() {
     document.getElementById("txtTax").innerHTML = "";
 }
 
-function reset4(){
+function reset4() {
     document.getElementById("txtCap").innerHTML = "";
 }
 
