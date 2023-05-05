@@ -225,6 +225,21 @@ function clalcCap() {
 
 
 
+function reset(){
+    document.getElementById("txtKetQua").innerHTML = "";
+}
+
+function reset2(){
+    document.getElementById("txtElc").innerHTML = "";
+}
+
+function reset3(){
+    document.getElementById("txtTax").innerHTML = "";
+}
+
+function reset4(){
+    document.getElementById("txtCap").innerHTML = "";
+}
 
 
 
