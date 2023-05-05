@@ -5,8 +5,6 @@ function myFunction() {
 
 
 
-// function disableInput(){
-//     var e=document.getElementById("selCustomer").value;
-//     document.getElementById("inputConnect").style.display="company"==e?"block":"none"}
+
 
 
