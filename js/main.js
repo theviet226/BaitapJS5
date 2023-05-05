@@ -149,24 +149,24 @@ function calcTax() {
     var total = 0;
     if (0 < thuNhap && thuNhap <= 60e6) {
         total = (thuNhap * TAX0_60);
-    } if (60e+6 < thuNhap && thuNhap <= 120e6) {
-        total = 60e+6 * TAX0_60 + (thuNhap - 60e+6) * TAX60_120;
-    } if (120e+6 < thuNhap && thuNhap <= 210e6) {
+    } else if (60e6 < thuNhap && thuNhap <= 120e6) {
+        total = 60e6 * TAX0_60 + (thuNhap - 60e6) * TAX60_120;
+    } else if (120e6 < thuNhap && thuNhap <= 210e6) {
         total = 60e6 * TAX0_60 + 60e6 * TAX60_120 + (thuNhap - 120e6) * TAX120_210;
-    } if (210e+6 < thuNhap && thuNhap <= 384e6) {
-        total = 60e+6 * TAX0_60 + 60e6 * TAX60_120 + 90e6 * TAX120_210 + (thuNhap - 210e+6) * TAX210_384;
-    } if (384e+6 < thuNhap && thuNhap <= 624e6) {
-        total = 60e+6 * TAX0_60 + 60e6 * TAX60_120 + 90e6 * TAX120_210 + 174e6 * TAX210_384 + (thuNhap - 384e+6) * TAX384_624;
-    } if (624e+6 < thuNhap && thuNhap <= 960e6) {
-        total = 60e+6 * TAX0_60 + 60e6 * TAX60_120 + 90e6 * TAX120_210 + 174e6 * TAX210_384 + 240e6 * TAX384_624 + (thuNhap - 624e+6) * TAX624_960;
-    } if (thuNhap > 960e+6) {
-        total = 60e+6 * TAX0_60 + 60e6 * TAX60_120 + 90e6 * TAX120_210 + 174e6 * TAX210_384 + 240e6 * TAX384_624 + 336e6 * TAX624_960 + (thuNhap - 960e+6) * TAX_TREN960;
+    } else if (210e6 < thuNhap && thuNhap <= 384e6) {
+        total = 60e6 * TAX0_60 + 60e6 * TAX60_120 + 90e6 * TAX120_210 + (thuNhap - 210e6) * TAX210_384;
+    } else if (384e6 < thuNhap && thuNhap <= 624e6) {
+        total = 60e6 * TAX0_60 + 60e6 * TAX60_120 + 90e6 * TAX120_210 + 174e6 * TAX210_384 + (thuNhap - 384e6) * TAX384_624;
+    } else if (624e6 < thuNhap && thuNhap <= 960e6) {
+        total = 60e6 * TAX0_60 + 60e6 * TAX60_120 + 90e6 * TAX120_210 + 174e6 * TAX210_384 + 240e6 * TAX384_624 + (thuNhap - 624e6) * TAX624_960;
+    } else if (thuNhap > 960e6) {
+        total = 60e+6 * TAX0_60 + 60e6 * TAX60_120 + 90e6 * TAX120_210 + 174e6 * TAX210_384 + 240e6 * TAX384_624 + 336e6 * TAX624_960 + (thuNhap - 960e6) * TAX_TREN960;
     } else {
         alert("Bạn nhập số thu nhập không hợp lệ!")
         return "";
     }
 
-    total = new Intl.NumberFormat("vn-VN").format(total)
+    total = Intl.NumberFormat("vn-VN").format(total)
 
 
     document.getElementById("txtTax").innerHTML = "Họ tên: " + name + ";" + " Tiền thuế thu nhập cá nhân: " + total + "VNĐ";
