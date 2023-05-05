@@ -3,11 +3,11 @@
  * điểm chuẩn, điểm 3 môn thi, khuVuc,doiTuong
  * 
  * Khối 2 :
- * Phân tích các function cho chương trình
- * +kiemTraKhuVuc
- * + kiemTraDoiTUong
+ * Phân tíchfunction cho chương trình
+ * +kiemTraKhuVuc,
+ * + kiemTraDoiTUong,
  * + Tinh tong diem
- * + Biet dau hay rot
+ *
  * 
  * Khối 3 : Output
  * Tính tổng điểm và đậu hay rớt
@@ -37,7 +37,7 @@ function ManageAdmissions() {
             break;
         default:
             alert("Bạn chưa chọn khu vực")
-            break;
+            return"";
     }
 
     var diemUuTienDT = "";
@@ -56,29 +56,31 @@ function ManageAdmissions() {
             break;
         default:
             alert("Bạn chưa chọn đối tượng")
-            break;
+            return"";
+            
     }
 
     var tongDiem = 0;
     tongDiem = diemMon1 + diemMon2 + diemMon3 + diemUuTienKV + diemUuTienDT;
 
     if (diemMon1 == 0 || diemMon2 == 0 || diemMon3 == 0) {
-        document.getElementById("txtKetQua").innerHTML = "Tổng điểm đạt được : " + tongDiem + "  -Bạn đã rớt vì có một môn điểm 0.";
+        document.getElementById("txtKetQua").innerHTML = "Tổng điểm đạt được: " + tongDiem + ";"+ "  Bạn đã rớt vì có một môn điểm 0.";
         console.log("Thí sinh thi rớt.");
     } else if (tongDiem >= diemChuan) {
-        document.getElementById("txtKetQua").innerHTML = "Tổng điểm đạt được : " + tongDiem + "  -Bạn đã đậu";
+        document.getElementById("txtKetQua").innerHTML = "Tổng điểm đạt được: " + tongDiem + ";"+"  Bạn đã đậu";
     } else {
-        document.getElementById("txtKetQua").innerHTML = "Tổng điểm đạt được : " + tongDiem + "  -Bạn đã rớt.";
+        document.getElementById("txtKetQua").innerHTML = "Tổng điểm đạt được  " + tongDiem +";"+ "  Bạn đã rớt.";
     }
 
 }
 
 /**
  * Khối 1: Input
- * ten, soKW
+ * hoTen, soKW
  * 
  * Khối 2 :
- * Phân tích các function cho chương trình
+ * Phân tích function cho chương trình
+ * +Khai báo bảng giá 
  * +tính tiền theo kw
  * 
  * Khối 3 : Output
@@ -108,10 +110,11 @@ function calcElec() {
         total = 50 * KW_DAU + 50 * KW_50_100 + 100 * KW_100_200 + 150 * KW_200_350 + (soKW - 350) * KW_TREN350
     } else {
         alert("Bạn nhập sai số kw không hợp lệ!")
+        return"";
     }
-    total = Intl.NumberFormat("vn-VN").format(total)
+    total = new Intl.NumberFormat("vn-VN").format(total)
 
-    document.getElementById("txtElc").innerHTML = "Họ tên: " + name + ";" + " Tiền điện: " + total;
+    document.getElementById("txtElc").innerHTML = "Họ tên: " + name + ";" + " Tiền điện: " + total + "VNĐ";
 }
 
 /**
@@ -120,8 +123,8 @@ function calcElec() {
  * 
  * Khối 2 :
  * Phân tích các function cho chương trình
- * + bảng thuế
- * +tính tiền thuế theo thu nhập và số người
+ * + khai báo bảng thuế
+ * +tính tiền thuế theo thu nhập 
  * 
  * Khối 3 : Output
  * Tính thành tiền
@@ -156,8 +159,12 @@ function calcTax() {
         total = 60e+6 * TAX0_60 + 60e6 * TAX60_120 + 90e6 * TAX120_210 + 174e6 * TAX210_384 + 240e6 * TAX384_624 + (thuNhap - 624e+6) * TAX624_960;
     } if (thuNhap > 960e+6) {
         total = 60e+6 * TAX0_60 + 60e6 * TAX60_120 + 90e6 * TAX120_210 + 174e6 * TAX210_384 + 240e6 * TAX384_624 + 336e6 * TAX624_960 + (thuNhap - 960e+6) * TAX_TREN960;
+    }else{
+        alert("Bạn nhập số thu nhập không hợp lệ!")
+        return"";
     }
-    total = Intl.NumberFormat("vn-VN").format(total)
+
+    total = new Intl.NumberFormat("vn-VN").format(total)
 
 
     document.getElementById("txtTax").innerHTML = "Họ tên: " + name + ";" + " Tiền thuế thu nhập cá nhân: " + total + "VNĐ";
@@ -206,8 +213,8 @@ function clalcCap() {
             }
             break
         default:
-            alert("Hãy chọn loại khách hàng")
-            break;
+            alert("Vui lòng chọn loại khách hàng!")
+            return"";
     }
     total = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(total);
 
